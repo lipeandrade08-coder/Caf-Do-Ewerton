@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 
 const InstagramIcon = ({ size = 16, className = "" }: { size?: number, className?: string }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
@@ -11,15 +12,15 @@ const InstagramIcon = ({ size = 16, className = "" }: { size?: number, className
   </svg>
 );
 
-// Using placeholders for the grid until real images are provided
-const posts = [1, 2, 3, 4, 5, 6];
+// Using the real images added to the public folder
+const posts = Array.from({ length: 12 }, (_, i) => `/gallery-${i + 1}.png`);
 
 export default function InstagramGrid() {
   return (
     <section className="py-24 bg-[var(--color-brand-charcoal)] relative">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <motion.h2 
+          <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -37,12 +38,16 @@ export default function InstagramGrid() {
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              transition={{ duration: 0.5, delay: (index % 3) * 0.1 }}
               className="aspect-square bg-[var(--color-brand-charcoal)] border border-[var(--color-brand-gold)]/10 rounded-xl overflow-hidden relative group cursor-pointer"
             >
-              {/* Placeholder background representing image */}
-              <div className="absolute inset-0 bg-gradient-to-tr from-[var(--color-brand-charcoal)] to-[var(--color-brand-brown)] opacity-50 group-hover:scale-105 transition-transform duration-700" />
-              
+              <Image
+                src={post}
+                alt={`Café do Ewerton Galeria ${index + 1}`}
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-700"
+              />
+
               {/* Instagram Hover Overlay */}
               <div className="absolute inset-0 bg-[var(--color-brand-charcoal)]/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                 <InstagramIcon size={32} className="text-[var(--color-brand-gold)]" />
