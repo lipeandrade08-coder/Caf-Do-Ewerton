@@ -32,7 +32,7 @@ export default function AboutCoffee() {
               className="relative w-full max-w-md aspect-[3/4] rounded-2xl overflow-hidden bg-[var(--color-brand-charcoal)] border border-[var(--color-brand-gold)]/10 shadow-2xl"
             >
               <Image 
-                src="/embalagem-v3-transparent-pillow.png" 
+                src="/sem fundo.png" 
                 alt="Embalagem do Café do Ewerton" 
                 fill 
                 className="object-cover object-center"

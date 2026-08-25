@@ -12,8 +12,15 @@ const InstagramIcon = ({ size = 16, className = "" }: { size?: number, className
   </svg>
 );
 
-// Using the real images added to the public folder
-const posts = Array.from({ length: 12 }, (_, i) => `/gallery-${i + 1}.png`);
+// Using the new generated images for accompaniments
+const posts = [
+  "/acompanhamento_croissant_1787676899633.jpg",
+  "/acompanhamento_cake_1787676911586.jpg",
+  "/acompanhamento_paodequeijo_1787676923021.jpg",
+  "/acompanhamento_tart_1787676934712.jpg",
+  "/acompanhamento_cookies_1787676945633.jpg",
+  "/acompanhamento_toast_1787676958257.jpg"
+];
 
 export default function InstagramGrid() {
   return (

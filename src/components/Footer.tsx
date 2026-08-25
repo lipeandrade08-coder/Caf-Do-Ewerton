@@ -13,53 +13,98 @@ const InstagramIcon = ({ size = 16 }: { size?: number }) => (
 
 export default function Footer() {
   return (
-    <footer className="bg-[#121110] py-16 border-t border-[var(--color-brand-gold)]/10">
+    <footer className="bg-[#121110] pt-20 pb-10 border-t border-[var(--color-brand-gold)]/10">
       <div className="container mx-auto px-6">
-        <div className="flex flex-col items-center text-center">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
           
           {/* Logo & Brand */}
-          <div className="mb-8 flex flex-col items-center">
-            <span className="text-[var(--color-brand-gold)] text-3xl mb-3">♕</span>
-            <span className="font-serif text-2xl tracking-widest text-[var(--color-brand-cream)] mb-2">
+          <div className="md:col-span-1 flex flex-col items-start">
+            <span className="text-[var(--color-brand-gold)] text-4xl mb-4">♕</span>
+            <span className="font-serif text-xl tracking-widest text-[var(--color-brand-cream)] mb-2">
               CAFÉ DO EWERTON
             </span>
-            <span className="text-[var(--color-brand-beige)] text-sm tracking-widest uppercase">
+            <span className="text-[var(--color-brand-beige)] text-xs tracking-widest uppercase mb-6">
               Tradição • Qualidade • Excelência
             </span>
+            <p className="text-[var(--color-brand-beige)]/70 text-sm font-light leading-relaxed">
+              Elevando o padrão do café especial no Brasil. Uma experiência única em cada xícara.
+            </p>
           </div>
 
           {/* Links */}
-          <div className="flex flex-wrap justify-center gap-6 md:gap-10 mb-10">
-            <Link href="#" className="text-[var(--color-brand-beige)] hover:text-[var(--color-brand-gold)] text-sm transition-colors">
-              Início
-            </Link>
-            <Link href="#nosso-cafe" className="text-[var(--color-brand-beige)] hover:text-[var(--color-brand-gold)] text-sm transition-colors">
-              Nosso Café
-            </Link>
-            <Link href="#qualidade" className="text-[var(--color-brand-beige)] hover:text-[var(--color-brand-gold)] text-sm transition-colors">
-              Qualidade
-            </Link>
-            <Link href="#" className="text-[var(--color-brand-beige)] hover:text-[var(--color-brand-gold)] text-sm transition-colors flex items-center space-x-1">
-              <InstagramIcon size={16} />
-              <span>Instagram</span>
-            </Link>
-            <Link href="https://wa.me/5500000000000" className="text-[var(--color-brand-beige)] hover:text-[var(--color-brand-gold)] text-sm transition-colors flex items-center space-x-1">
-              <Phone size={16} />
-              <span>WhatsApp</span>
-            </Link>
+          <div className="md:col-span-1 flex flex-col">
+            <h4 className="text-[var(--color-brand-gold)] text-sm font-bold tracking-widest uppercase mb-6">Navegação</h4>
+            <div className="flex flex-col space-y-4">
+              <Link href="#" className="text-[var(--color-brand-beige)] hover:text-[var(--color-brand-cream)] hover:translate-x-1 text-sm transition-all">
+                Início
+              </Link>
+              <Link href="#nosso-cafe" className="text-[var(--color-brand-beige)] hover:text-[var(--color-brand-cream)] hover:translate-x-1 text-sm transition-all">
+                Nosso Café
+              </Link>
+              <Link href="#qualidade" className="text-[var(--color-brand-beige)] hover:text-[var(--color-brand-cream)] hover:translate-x-1 text-sm transition-all">
+                Qualidade & Torra
+              </Link>
+              <Link href="#contato" className="text-[var(--color-brand-beige)] hover:text-[var(--color-brand-cream)] hover:translate-x-1 text-sm transition-all">
+                Contato
+              </Link>
+            </div>
           </div>
 
-          {/* Copyright */}
-          <div className="w-full h-px bg-gradient-to-r from-transparent via-[var(--color-brand-gold)]/20 to-transparent mb-8" />
-          
-          <div className="flex flex-col md:flex-row items-center justify-between w-full text-xs text-[var(--color-brand-beige)]/50">
-            <p>© {new Date().getFullYear()} Café do Ewerton. Todos os direitos reservados.</p>
-            <p className="mt-4 md:mt-0 opacity-50 hover:opacity-100 transition-opacity">
-              Desenvolvido por 2Type
+          {/* Contact */}
+          <div className="md:col-span-1 flex flex-col">
+            <h4 className="text-[var(--color-brand-gold)] text-sm font-bold tracking-widest uppercase mb-6">Contato</h4>
+            <div className="flex flex-col space-y-4">
+              <Link href="https://wa.me/5500000000000" className="text-[var(--color-brand-beige)] hover:text-[var(--color-brand-cream)] text-sm transition-colors flex items-center space-x-2">
+                <Phone size={16} className="text-[var(--color-brand-gold)]" />
+                <span>(11) 99999-9999</span>
+              </Link>
+              <Link href="#" className="text-[var(--color-brand-beige)] hover:text-[var(--color-brand-cream)] text-sm transition-colors flex items-center space-x-2">
+                <InstagramIcon size={16} />
+                <span>@cafedoewerton</span>
+              </Link>
+              <p className="text-[var(--color-brand-beige)]/70 text-sm mt-2">
+                contato@cafedoewerton.com.br
+              </p>
+            </div>
+          </div>
+
+          {/* Newsletter */}
+          <div className="md:col-span-1 flex flex-col">
+            <h4 className="text-[var(--color-brand-gold)] text-sm font-bold tracking-widest uppercase mb-6">Newsletter</h4>
+            <p className="text-[var(--color-brand-beige)]/70 text-sm font-light mb-4">
+              Receba novidades, dicas de preparo e ofertas exclusivas do nosso café.
             </p>
+            <form className="flex flex-col space-y-3" onSubmit={(e) => e.preventDefault()}>
+              <input 
+                type="email" 
+                placeholder="Seu melhor e-mail" 
+                className="bg-[var(--color-brand-charcoal)] border border-[var(--color-brand-gold)]/20 text-[var(--color-brand-cream)] px-4 py-3 rounded-lg text-sm focus:outline-none focus:border-[var(--color-brand-gold)] transition-colors placeholder:text-[var(--color-brand-beige)]/40"
+              />
+              <button 
+                type="submit"
+                className="bg-[var(--color-brand-gold)] text-[var(--color-brand-charcoal)] font-bold text-sm px-4 py-3 rounded-lg hover:bg-[var(--color-brand-beige)] transition-colors"
+              >
+                Assinar
+              </button>
+            </form>
           </div>
           
         </div>
+
+        {/* Copyright */}
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-[var(--color-brand-gold)]/20 to-transparent mb-8" />
+        
+        <div className="flex flex-col md:flex-row items-center justify-between w-full text-xs text-[var(--color-brand-beige)]/50">
+          <p>© {new Date().getFullYear()} Café do Ewerton. Todos os direitos reservados.</p>
+          <div className="flex space-x-6 mt-4 md:mt-0">
+            <Link href="#" className="hover:text-[var(--color-brand-gold)] transition-colors">Termos de Uso</Link>
+            <Link href="#" className="hover:text-[var(--color-brand-gold)] transition-colors">Política de Privacidade</Link>
+            <p className="opacity-50 hover:opacity-100 transition-opacity ml-4 border-l border-[var(--color-brand-gold)]/20 pl-4">
+              Desenvolvido por 2Type
+            </p>
+          </div>
+        </div>
+        
       </div>
     </footer>
   );
