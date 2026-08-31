@@ -40,7 +40,7 @@ export default function WhatsAppButton() {
           </div>
 
           <Link
-            href="https://wa.me/5500000000000?text=Olá! Vim pelo site do Café do Ewerton e gostaria de saber como faço para pedir o meu café."
+            href="https://wa.me/5512997792964?text=Olá! Vim pelo site do Café do Ewerton e gostaria de saber como faço para pedir o meu café."
             target="_blank"
             className="flex items-center justify-center w-14 h-14 md:w-16 md:h-16 bg-[#25D366] text-white rounded-full shadow-[0_4px_14px_0_rgba(37,211,102,0.39)] hover:shadow-[0_6px_20px_rgba(37,211,102,0.5)] hover:-translate-y-1 transition-all duration-300 relative"
           >

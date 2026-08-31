@@ -7,43 +7,34 @@ import Link from "next/link";
 export default function Hero() {
   return (
     <section className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
-      {/* Background Image & Overlay */}
-      <motion.div 
-        animate={{ scale: [1, 1.05, 1] }}
-        transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+      {/* Background Image – CSS ken-burns (GPU compositor-only, zero repaint) */}
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat animate-ken-burns"
         style={{
-          backgroundImage: "url('/hero-bg-v2.png')", 
-          backgroundColor: "var(--color-brand-charcoal)" // Fallback color
+          backgroundImage: "url('/hero-bg-v2.png')",
+          backgroundColor: "var(--color-brand-charcoal)",
         }}
-      >
-        {/* Camada escurecedora base */}
-        <div className="absolute inset-0 bg-[var(--color-brand-charcoal)]/60 mix-blend-multiply" />
-        
-        {/* Efeito Vinheta (Bordas escuras) */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-transparent via-[var(--color-brand-charcoal)]/40 to-[var(--color-brand-charcoal)]/90" />
-        
-        {/* Gradiente adicional inferior para leitura */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-brand-charcoal)] via-transparent to-[var(--color-brand-charcoal)] opacity-90" />
-      </motion.div>
+      />
+
+      {/* Overlay layers – rgba sem mix-blend-multiply para não quebrar compositing */}
+      <div className="absolute inset-0 bg-[var(--color-brand-charcoal)]/60 pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_30%,_rgba(29,27,26,0.85)_100%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-brand-charcoal)] via-transparent to-[var(--color-brand-charcoal)] opacity-90 pointer-events-none" />
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-6 flex flex-col items-center text-center mt-16">
-        
-        {/* Crown Icon / Logo Element */}
+
+        {/* Crown – CSS float (compositor-only) */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1, y: [0, -10, 0] }}
-          transition={{ 
-            opacity: { duration: 0.8, ease: "easeOut" },
-            scale: { duration: 0.8, ease: "easeOut" },
-            y: { duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0.8 } 
-          }}
-          className="text-[var(--color-brand-gold)] text-4xl mb-4"
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="text-[var(--color-brand-gold)] text-4xl mb-4 animate-crown-bob"
+          style={{ animationDelay: "0.8s" }}
         >
           ♕
         </motion.div>
-        
+
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -79,14 +70,14 @@ export default function Hero() {
           className="flex flex-col sm:flex-row items-center gap-4"
         >
           <Link
-            href="https://wa.me/5500000000000?text=Olá! Vim pelo site do Café do Ewerton e gostaria de saber como faço para pedir o meu café."
+            href="https://wa.me/5512997792964?text=Olá! Vim pelo site do Café do Ewerton e gostaria de saber como faço para pedir o meu café."
             target="_blank"
             className="flex items-center space-x-2 bg-[var(--color-brand-gold)] text-[var(--color-brand-charcoal)] px-8 py-4 rounded-full font-bold text-sm hover:bg-[var(--color-brand-beige)] transition-colors w-full sm:w-auto justify-center"
           >
             <Phone size={18} />
             <span>PEDIR PELO WHATSAPP</span>
           </Link>
-          
+
           <Link
             href="#nosso-cafe"
             className="flex items-center justify-center px-8 py-4 rounded-full font-bold text-sm border-2 border-[var(--color-brand-gold)] text-[var(--color-brand-gold)] hover:bg-[var(--color-brand-gold)]/10 transition-colors w-full sm:w-auto"
@@ -105,11 +96,15 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      {/* Decorative Botanical Elements (Placeholders) */}
-      <div className="absolute top-0 left-0 w-64 h-64 opacity-20 pointer-events-none" 
-           style={{ background: "radial-gradient(circle, var(--color-brand-gold) 0%, transparent 70%)", filter: "blur(40px)" }} />
-      <div className="absolute bottom-0 right-0 w-80 h-80 opacity-20 pointer-events-none" 
-           style={{ background: "radial-gradient(circle, var(--color-brand-gold) 0%, transparent 70%)", filter: "blur(50px)" }} />
+      {/* Decorative glows – promovidos à GPU layer, sem blur dinâmico */}
+      <div
+        className="absolute top-0 left-0 w-64 h-64 opacity-20 pointer-events-none gpu-layer"
+        style={{ background: "radial-gradient(circle, var(--color-brand-gold) 0%, transparent 70%)", filter: "blur(40px)" }}
+      />
+      <div
+        className="absolute bottom-0 right-0 w-80 h-80 opacity-20 pointer-events-none gpu-layer"
+        style={{ background: "radial-gradient(circle, var(--color-brand-gold) 0%, transparent 70%)", filter: "blur(50px)" }}
+      />
     </section>
   );
 }

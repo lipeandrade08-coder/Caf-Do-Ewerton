@@ -16,9 +16,81 @@
   --foreground: #F6F1E6;
 }
 
+/* ─── Performance: Smooth scrolling & text rendering ─── */
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans);
   overflow-x: hidden;
+  text-rendering: optimizeSpeed;
+  -webkit-font-smoothing: antialiased;
 }
+
+/* ─── GPU-accelerated CSS animations (compositor-only, zero layout/paint) ─── */
+
+/* Float: replaces infinite framer-motion y:[0,-15,0] animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) translateZ(0); }
+  50%       { transform: translateY(-12px) translateZ(0); }
+}
+
+/* Float subtle: for icons (smaller displacement) */
+@keyframes float-subtle {
+  0%, 100% { transform: translateY(0px) translateZ(0); }
+  50%       { transform: translateY(-8px) translateZ(0); }
+}
+
+/* Pulse glow: replaces scale+opacity blur animations */
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.1; transform: scale(1) translateZ(0); }
+  50%       { opacity: 0.22; transform: scale(1.06) translateZ(0); }
+}
+
+/* Hero ken-burns: replaces framer-motion scale:[1,1.05,1] on background */
+@keyframes ken-burns {
+  0%, 100% { transform: scale(1) translateZ(0); }
+  50%       { transform: scale(1.04) translateZ(0); }
+}
+
+/* Crown bob: subtle bob for ♕ icons */
+@keyframes crown-bob {
+  0%, 100% { transform: translateY(0px) translateZ(0); }
+  50%       { transform: translateY(-8px) translateZ(0); }
+}
+
+/* ─── Utility classes ─── */
+.animate-float {
+  animation: float 5s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-float-subtle {
+  animation: float-subtle 4s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 4s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+.animate-ken-burns {
+  animation: ken-burns 20s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-crown-bob {
+  animation: crown-bob 4s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* Promote element to its own GPU layer */
+.gpu-layer {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+

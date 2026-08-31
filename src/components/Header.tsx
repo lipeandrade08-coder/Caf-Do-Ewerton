@@ -13,7 +13,9 @@ export default function Header() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
-    window.addEventListener("scroll", handleScroll);
+    // { passive: true } tells the browser this handler won't call preventDefault()
+    // allowing the browser to scroll without waiting for JS — critical for 60fps scroll
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -36,7 +38,6 @@ export default function Header() {
       <div className="container mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
         <Link href="#" className="flex items-center space-x-2 group">
-          {/* Coroa placeholder (pode ser substituída por SVG/Image depois) */}
           <span className="text-[var(--color-brand-gold)] font-serif text-2xl group-hover:scale-105 transition-transform">
             ♕
           </span>
@@ -61,7 +62,7 @@ export default function Header() {
         {/* CTA Button Desktop */}
         <div className="hidden md:block">
           <Link
-            href="https://wa.me/5500000000000?text=Olá! Vim pelo site do Café do Ewerton e gostaria de saber como faço para pedir o meu café."
+            href="https://wa.me/5512997792964?text=Olá! Vim pelo site do Café do Ewerton e gostaria de saber como faço para pedir o meu café."
             target="_blank"
             className="flex items-center space-x-2 bg-[var(--color-brand-gold)] text-[var(--color-brand-charcoal)] px-6 py-2.5 rounded-full font-bold text-sm hover:bg-[var(--color-brand-beige)] transition-colors"
           >
@@ -99,7 +100,7 @@ export default function Header() {
               </Link>
             ))}
             <Link
-              href="https://wa.me/5500000000000?text=Olá! Vim pelo site do Café do Ewerton e gostaria de saber como faço para pedir o meu café."
+              href="https://wa.me/5512997792964?text=Olá! Vim pelo site do Café do Ewerton e gostaria de saber como faço para pedir o meu café."
               target="_blank"
               className="flex items-center space-x-2 bg-[var(--color-brand-gold)] text-[var(--color-brand-charcoal)] px-8 py-3 rounded-full font-bold text-sm"
               onClick={() => setMobileMenuOpen(false)}

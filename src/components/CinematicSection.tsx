@@ -5,32 +5,26 @@ import { motion } from "framer-motion";
 export default function CinematicSection() {
   return (
     <section className="relative py-48 md:py-64 flex items-center justify-center overflow-hidden bg-[var(--color-brand-charcoal)]">
-      
-      {/* Video Background */}
-      <div className="absolute inset-0 w-full h-full">
-        <video 
-          autoPlay 
-          loop 
-          muted 
-          playsInline 
+
+      {/* Video Background – preload="none" evita download desnecessário antes de ser visível */}
+      <div className="absolute inset-0 w-full h-full gpu-layer">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="none"
           className="w-full h-full object-cover"
         >
           <source src="/cinematic-video.mp4" type="video/mp4" />
         </video>
       </div>
 
-      {/* Dark Overlay & Vignettes */}
-      <div className="absolute inset-0 z-0">
-        {/* Base dark blend */}
-        <div className="absolute inset-0 bg-[var(--color-brand-charcoal)]/60 mix-blend-multiply" />
-        
-        {/* Efeito Vinheta forte nas bordas para ocultar marca d'água */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-transparent via-[var(--color-brand-charcoal)]/50 to-[var(--color-brand-charcoal)]/100" />
-        
-        {/* Gradiente adicional forte no canto inferior direito específico para a marca d'água */}
-        <div className="absolute -bottom-10 -right-10 w-[600px] h-[600px] bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[var(--color-brand-charcoal)] via-[var(--color-brand-charcoal)]/80 to-transparent blur-3xl opacity-100" />
-        
-        {/* Top/Bottom Fade out for smooth transition with other sections */}
+      {/* Overlay layers – sem mix-blend-multiply para não quebrar compositing do browser */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <div className="absolute inset-0 bg-[var(--color-brand-charcoal)]/60" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_30%,_rgba(29,27,26,0.9)_100%)]" />
+        <div className="absolute -bottom-10 -right-10 w-[600px] h-[600px] bg-[radial-gradient(ellipse_at_center,_rgba(29,27,26,1)_0%,_rgba(29,27,26,0.8)_40%,_transparent_70%)]" />
         <div className="absolute inset-0 bg-gradient-to-b from-[var(--color-brand-charcoal)] via-transparent to-[var(--color-brand-charcoal)] opacity-90" />
       </div>
 

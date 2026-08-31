@@ -54,7 +54,7 @@ export default function CoffeeExperience() {
           >
             ♕
           </motion.div>
-          <motion.h2 
+          <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -65,7 +65,7 @@ export default function CoffeeExperience() {
           </motion.h2>
         </div>
 
-        <motion.div 
+        <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -73,18 +73,18 @@ export default function CoffeeExperience() {
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12"
         >
           {features.map((feature, index) => (
-            <motion.div 
-              key={index} 
+            <motion.div
+              key={index}
               variants={itemVariants}
               className="flex flex-col items-center text-center group"
             >
-              <motion.div 
-                animate={{ y: [0, -10, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: index * 0.5 }}
-                className="w-20 h-20 rounded-full border border-[var(--color-brand-gold)]/20 flex items-center justify-center mb-6 bg-[var(--color-brand-charcoal)] group-hover:border-[var(--color-brand-gold)] transition-colors duration-500 shadow-[0_0_15px_rgba(200,169,106,0.05)] group-hover:shadow-[0_0_20px_rgba(200,169,106,0.15)]"
+              {/* CSS float animation – replaces infinite framer-motion y:[0,-10,0] */}
+              <div
+                className="w-20 h-20 rounded-full border border-[var(--color-brand-gold)]/20 flex items-center justify-center mb-6 bg-[var(--color-brand-charcoal)] group-hover:border-[var(--color-brand-gold)] transition-colors duration-500 shadow-[0_0_15px_rgba(200,169,106,0.05)] group-hover:shadow-[0_0_20px_rgba(200,169,106,0.15)] animate-float-subtle"
+                style={{ animationDelay: `${index * 0.5}s` }}
               >
                 {feature.icon}
-              </motion.div>
+              </div>
               <h3 className="font-serif text-2xl text-[var(--color-brand-cream)] mb-3">
                 {feature.title}
               </h3>
