@@ -17,9 +17,9 @@ export default function Hero() {
       />
 
       {/* Overlay layers – rgba sem mix-blend-multiply para não quebrar compositing */}
-      <div className="absolute inset-0 bg-[var(--color-brand-charcoal)]/60 pointer-events-none" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_30%,_rgba(29,27,26,0.85)_100%)] pointer-events-none" />
-      <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-brand-charcoal)] via-transparent to-[var(--color-brand-charcoal)] opacity-90 pointer-events-none" />
+      <div className="absolute inset-0 bg-[var(--color-brand-charcoal)]/40 pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_30%,_rgba(29,27,26,0.6)_100%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-brand-charcoal)] via-transparent to-[var(--color-brand-charcoal)]/50 opacity-70 pointer-events-none" />
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-6 flex flex-col items-center text-center mt-16">
@@ -29,7 +29,7 @@ export default function Hero() {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-[var(--color-brand-gold)] text-4xl mb-4 animate-crown-bob"
+          className="text-[var(--color-brand-gold)] text-6xl mb-4 animate-crown-bob"
           style={{ animationDelay: "0.8s" }}
         >
           ♕

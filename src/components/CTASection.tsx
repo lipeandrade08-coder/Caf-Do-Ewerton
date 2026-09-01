@@ -55,6 +55,24 @@ export default function CTASection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.55 }}
+          className="flex flex-col items-center mb-10"
+        >
+          <p className="text-[var(--color-brand-beige)] text-sm uppercase tracking-widest mb-2 font-light">
+            Valor do pacote
+          </p>
+          <div className="flex items-baseline gap-2">
+            <span className="text-[var(--color-brand-gold)] font-serif text-2xl">R$</span>
+            <span className="text-[var(--color-brand-cream)] font-serif text-7xl md:text-8xl leading-none">60</span>
+            <span className="text-[var(--color-brand-gold)] font-serif text-2xl self-start mt-3">,00</span>
+          </div>
+          <div className="mt-3 h-px w-24 bg-gradient-to-r from-transparent via-[var(--color-brand-gold)] to-transparent" />
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.6 }}
           className="flex flex-col sm:flex-row items-center gap-6"
         >
