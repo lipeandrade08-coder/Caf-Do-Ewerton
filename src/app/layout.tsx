@@ -13,7 +13,7 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
-const BASE_URL = "https://cafe-do-ewerton.vercel.app";
+const BASE_URL = "https://cafedoewerton.com.br";
 
 export const viewport: Viewport = {
   themeColor: "#C8A96A",

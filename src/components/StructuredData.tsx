@@ -9,7 +9,7 @@
  * - FAQPage: perguntas frequentes (aparecem expandidas no Google)
  */
 
-const BASE_URL = "https://cafe-do-ewerton.vercel.app";
+const BASE_URL = "https://cafedoewerton.com.br";
 
 const localBusiness = {
   "@type": "LocalBusiness",
