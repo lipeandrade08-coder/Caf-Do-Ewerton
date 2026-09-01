@@ -65,7 +65,7 @@ export default function InstagramGrid() {
 
         <div className="text-center">
           <Link
-            href="#"
+            href="https://www.instagram.com/cafe_do_ewerton/"
             target="_blank"
             className="inline-flex items-center space-x-2 bg-transparent text-[var(--color-brand-cream)] border border-[var(--color-brand-cream)]/30 px-8 py-3 rounded-full font-bold text-sm hover:border-[var(--color-brand-gold)] hover:text-[var(--color-brand-gold)] transition-colors duration-300"
           >

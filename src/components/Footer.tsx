@@ -54,13 +54,13 @@ export default function Footer() {
           <div className="md:col-span-1 flex flex-col">
             <h4 className="text-[var(--color-brand-gold)] text-sm font-bold tracking-widest uppercase mb-6">Contato</h4>
             <div className="flex flex-col space-y-4">
-              <Link href="https://wa.me/5500000000000" className="text-[var(--color-brand-beige)] hover:text-[var(--color-brand-cream)] text-sm transition-colors flex items-center space-x-2">
+              <Link href="https://wa.me/5512997792964" className="text-[var(--color-brand-beige)] hover:text-[var(--color-brand-cream)] text-sm transition-colors flex items-center space-x-2">
                 <Phone size={16} className="text-[var(--color-brand-gold)]" />
-                <span>(11) 99999-9999</span>
+                <span>(12) 99779-2964</span>
               </Link>
-              <Link href="#" className="text-[var(--color-brand-beige)] hover:text-[var(--color-brand-cream)] text-sm transition-colors flex items-center space-x-2">
+              <Link href="https://www.instagram.com/cafe_do_ewerton/" target="_blank" className="text-[var(--color-brand-beige)] hover:text-[var(--color-brand-cream)] text-sm transition-colors flex items-center space-x-2">
                 <InstagramIcon size={16} />
-                <span>@cafedoewerton</span>
+                <span>@cafe_do_ewerton</span>
               </Link>
               <p className="text-[var(--color-brand-beige)]/70 text-sm mt-2">
                 contato@cafedoewerton.com.br

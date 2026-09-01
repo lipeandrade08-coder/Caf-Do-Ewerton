@@ -23,7 +23,7 @@ const localBusiness = {
   servesCuisine: "Café Especial",
   image: `${BASE_URL}/embalagem-v3.png`,
   logo: `${BASE_URL}/favicon.ico`,
-  sameAs: [],
+  sameAs: ["https://www.instagram.com/cafe_do_ewerton/"],
   hasMap: "",
   openingHoursSpecification: [
     {
@@ -111,7 +111,7 @@ const organization = {
     availableLanguage: "Portuguese",
     contactOption: "TollFree",
   },
-  sameAs: [],
+  sameAs: ["https://www.instagram.com/cafe_do_ewerton/"],
 };
 
 const breadcrumb = {

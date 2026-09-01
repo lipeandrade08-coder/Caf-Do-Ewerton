@@ -78,7 +78,7 @@ export default function AboutCoffee() {
             </div>
 
             <Link
-              href="https://wa.me/5500000000000?text=Olá! Vim pelo site do Café do Ewerton e gostaria de saber como faço para pedir o meu café."
+              href="https://wa.me/5512997792964?text=Olá! Vim pelo site do Café do Ewerton e gostaria de saber como faço para pedir o meu café."
               target="_blank"
               className="flex items-center space-x-2 bg-transparent text-[var(--color-brand-gold)] border border-[var(--color-brand-gold)] px-8 py-3 rounded-full font-bold text-sm hover:bg-[var(--color-brand-gold)] hover:text-[var(--color-brand-charcoal)] transition-all duration-300"
             >

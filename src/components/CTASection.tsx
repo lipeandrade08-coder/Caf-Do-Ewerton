@@ -77,7 +77,7 @@ export default function CTASection() {
           className="flex flex-col sm:flex-row items-center gap-6"
         >
           <Link
-            href="https://wa.me/5500000000000?text=Olá! Vim pelo site do Café do Ewerton e gostaria de saber como faço para pedir o meu café."
+            href="https://wa.me/5512997792964?text=Olá! Vim pelo site do Café do Ewerton e gostaria de saber como faço para pedir o meu café."
             target="_blank"
             className="flex items-center space-x-3 bg-[var(--color-brand-gold)] text-[var(--color-brand-charcoal)] px-10 py-4 rounded-full font-bold text-sm md:text-base hover:bg-[var(--color-brand-beige)] transition-all shadow-xl hover:shadow-[0_0_30px_rgba(200,169,106,0.3)] hover:-translate-y-1 transform duration-300 w-full sm:w-auto justify-center"
           >
@@ -86,7 +86,7 @@ export default function CTASection() {
           </Link>
           
           <Link
-            href="#"
+            href="https://www.instagram.com/cafe_do_ewerton/"
             className="flex items-center space-x-3 bg-transparent border border-[var(--color-brand-gold)]/50 text-[var(--color-brand-cream)] px-10 py-4 rounded-full font-bold text-sm md:text-base hover:bg-[var(--color-brand-gold)]/10 hover:border-[var(--color-brand-gold)] transition-all duration-300 w-full sm:w-auto justify-center"
           >
             <span>CONHECER NOSSO INSTAGRAM</span>
