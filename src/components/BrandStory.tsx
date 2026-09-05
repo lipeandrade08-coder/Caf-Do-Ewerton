@@ -4,7 +4,13 @@ import { motion } from "framer-motion";
 
 export default function BrandStory() {
   return (
-    <section id="historia" className="py-24 bg-[var(--color-brand-charcoal)] border-y border-[var(--color-brand-gold)]/5 relative">
+    <section
+      id="historia"
+      className="py-24 bg-[var(--color-brand-charcoal)] border-y border-[var(--color-brand-gold)]/5 relative"
+      aria-labelledby="historia-heading"
+      itemScope
+      itemType="https://schema.org/AboutPage"
+    >
       <div className="container mx-auto px-6 text-center max-w-4xl">
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
@@ -22,6 +28,8 @@ export default function BrandStory() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
           className="font-serif text-4xl md:text-5xl text-[var(--color-brand-cream)] mb-6"
+          id="historia-heading"
+          itemProp="name"
         >
           Café do Ewerton
         </motion.h2>
@@ -42,6 +50,7 @@ export default function BrandStory() {
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.6 }}
           className="text-[var(--color-brand-beige)] font-light leading-relaxed space-y-6 text-lg"
+          itemProp="description"
         >
           <p>
             O verdadeiro café especial não é apenas sobre o sabor na xícara, é sobre toda a jornada que os grãos percorrem até chegar a você.

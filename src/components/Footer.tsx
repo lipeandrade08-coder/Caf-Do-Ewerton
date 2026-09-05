@@ -97,8 +97,8 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row items-center justify-between w-full text-xs text-[var(--color-brand-beige)]/50">
           <p>© {new Date().getFullYear()} Café do Ewerton. Todos os direitos reservados.</p>
           <div className="flex space-x-6 mt-4 md:mt-0">
-            <Link href="#" className="hover:text-[var(--color-brand-gold)] transition-colors">Termos de Uso</Link>
-            <Link href="#" className="hover:text-[var(--color-brand-gold)] transition-colors">Política de Privacidade</Link>
+            <Link href="/termos-de-uso" className="hover:text-[var(--color-brand-gold)] transition-colors">Termos de Uso</Link>
+            <Link href="/politica-de-privacidade" className="hover:text-[var(--color-brand-gold)] transition-colors">Política de Privacidade</Link>
             <p className="opacity-50 hover:opacity-100 transition-opacity ml-4 border-l border-[var(--color-brand-gold)]/20 pl-4">
               Desenvolvido por 2Type
             </p>

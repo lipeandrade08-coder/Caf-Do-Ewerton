@@ -7,7 +7,13 @@ import { Coffee } from "lucide-react";
 
 export default function AboutCoffee() {
   return (
-    <section id="nosso-cafe" className="py-24 bg-[var(--color-brand-charcoal)] relative overflow-hidden">
+    <section
+      id="nosso-cafe"
+      className="py-24 bg-[var(--color-brand-charcoal)] relative overflow-hidden"
+      aria-labelledby="nosso-cafe-heading"
+      itemScope
+      itemType="https://schema.org/Product"
+    >
       <div className="container mx-auto px-6">
         <div className="flex flex-col lg:flex-row items-center gap-16">
           
@@ -31,11 +37,13 @@ export default function AboutCoffee() {
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
               className="relative w-full max-w-md aspect-[3/4] rounded-2xl overflow-hidden bg-[var(--color-brand-charcoal)] border border-[var(--color-brand-gold)]/10 shadow-2xl"
             >
-              <Image 
-                src="/sem fundo.png" 
-                alt="Embalagem do Café do Ewerton" 
-                fill 
+              <Image
+                src="/sem fundo.png"
+                alt="Embalagem do Café do Ewerton — Café Especial Artesanal Torra Média 500g — Vista Frontal"
+                fill
                 className="object-cover object-center"
+                itemProp="image"
+                sizes="(max-width: 768px) 100vw, 50vw"
               />
             </motion.div>
           </motion.div>
@@ -48,13 +56,23 @@ export default function AboutCoffee() {
             transition={{ duration: 0.8 }}
             className="w-full lg:w-1/2 flex flex-col items-start"
           >
-            <h2 className="font-serif text-4xl md:text-5xl text-[var(--color-brand-cream)] mb-6">
-              Um café feito para ser apreciado.
+            <h2
+              id="nosso-cafe-heading"
+              className="font-serif text-4xl md:text-5xl text-[var(--color-brand-cream)] mb-6"
+              itemProp="name"
+            >
+              Café do Ewerton — Torra Média 500g
             </h2>
+            <p className="font-serif text-xl text-[var(--color-brand-gold)] mb-2 tracking-wide">
+              Um café feito para ser apreciado.
+            </p>
             
-            <p className="text-[var(--color-brand-beige)] text-lg mb-10 leading-relaxed font-light">
-              O Café do Ewerton busca entregar uma experiência equilibrada, aromática e marcante. 
-              Cada grão é selecionado para proporcionar momentos de apreciação únicos, 
+            <p
+              className="text-[var(--color-brand-beige)] text-lg mb-10 leading-relaxed font-light"
+              itemProp="description"
+            >
+              O Café do Ewerton busca entregar uma experiência equilibrada, aromática e marcante.
+              Cada grão é selecionado para proporcionar momentos de apreciação únicos,
               preservando a tradição de um café verdadeiramente especial.
             </p>
 

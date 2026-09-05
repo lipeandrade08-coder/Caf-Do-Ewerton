@@ -6,7 +6,24 @@ import Link from "next/link";
 
 export default function Hero() {
   return (
-    <section className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
+    <section
+      className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden"
+      aria-label="Café do Ewerton — Café Especial Artesanal Torra Média 500g"
+      itemScope
+      itemType="https://schema.org/Product"
+    >
+      {/* Microdados de produto inline — complementam o JSON-LD */}
+      <meta itemProp="name" content="Café do Ewerton — Torra Média 500g" />
+      <meta
+        itemProp="description"
+        content="Café especial artesanal com torra média, selecionado com cuidado para preservar aroma, sabor e equilíbrio em cada xícara."
+      />
+      <meta itemProp="image" content="https://cafedoewerton.com.br/embalagem-v3.png" />
+      <span itemProp="offers" itemScope itemType="https://schema.org/Offer">
+        <meta itemProp="price" content="60.00" />
+        <meta itemProp="priceCurrency" content="BRL" />
+        <meta itemProp="availability" content="https://schema.org/InStock" />
+      </span>
       {/* Background Image – CSS ken-burns (GPU compositor-only, zero repaint) */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat animate-ken-burns"
