@@ -30,6 +30,22 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* Contain layout repaints to individual sections */
+section {
+  contain: layout style;
+}
+
+/* Respect system reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
 /* ─── GPU-accelerated CSS animations (compositor-only, zero layout/paint) ─── */
 
 /* Float: replaces infinite framer-motion y:[0,-15,0] animations */

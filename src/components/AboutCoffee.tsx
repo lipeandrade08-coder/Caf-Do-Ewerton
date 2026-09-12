@@ -25,18 +25,11 @@ export default function AboutCoffee() {
             transition={{ duration: 0.8 }}
             className="w-full lg:w-1/2 flex justify-center relative"
           >
-            {/* Subtle glow behind the product */}
-            <motion.div 
-              animate={{ scale: [1, 1.05, 1], opacity: [0.1, 0.2, 0.1] }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-96 bg-[var(--color-brand-gold)] blur-[80px] rounded-full pointer-events-none" 
-            />
-            
-            <motion.div 
-              animate={{ y: [0, -15, 0] }}
-              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-              className="relative w-full max-w-md aspect-[3/4] rounded-2xl overflow-hidden bg-[var(--color-brand-charcoal)] border border-[var(--color-brand-gold)]/10 shadow-2xl"
-            >
+            {/* Subtle glow — CSS animation (compositor-only, zero JS overhead) */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-96 bg-[var(--color-brand-gold)] blur-[80px] rounded-full pointer-events-none animate-pulse-glow" />
+
+            {/* Product image — CSS float animation instead of Framer Motion loop */}
+            <div className="relative w-full max-w-md aspect-[3/4] rounded-2xl overflow-hidden bg-[var(--color-brand-charcoal)] border border-[var(--color-brand-gold)]/10 shadow-2xl animate-float">
               <Image
                 src="/sem fundo.png"
                 alt="Embalagem do Café do Ewerton — Café Especial Artesanal Torra Média 500g — Vista Frontal"
@@ -44,8 +37,9 @@ export default function AboutCoffee() {
                 className="object-cover object-center"
                 itemProp="image"
                 sizes="(max-width: 768px) 100vw, 50vw"
+                priority
               />
-            </motion.div>
+            </div>
           </motion.div>
 
           {/* Right Side - Content */}

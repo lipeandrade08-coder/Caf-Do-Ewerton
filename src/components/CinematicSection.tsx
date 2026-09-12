@@ -1,26 +1,52 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useEffect, useRef } from "react";
 
 export default function CinematicSection() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  // Lazy-load: só começa a carregar e tocar quando entra na viewport
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          // Load source only when visible
+          if (!video.src) {
+            video.src = "/cinematic-video.mp4";
+            video.load();
+          }
+          video.play().catch(() => {});
+        } else {
+          video.pause();
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    observer.observe(video);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section className="relative py-48 md:py-64 flex items-center justify-center overflow-hidden bg-[var(--color-brand-charcoal)]">
 
-      {/* Video Background – preload="none" evita download desnecessário antes de ser visível */}
+      {/* Video Background — lazy-loaded, pauses when off-screen */}
       <div className="absolute inset-0 w-full h-full gpu-layer">
         <video
-          autoPlay
+          ref={videoRef}
           loop
           muted
           playsInline
           preload="none"
           className="w-full h-full object-cover"
-        >
-          <source src="/cinematic-video.mp4" type="video/mp4" />
-        </video>
+        />
       </div>
 
-      {/* Overlay layers – sem mix-blend-multiply para não quebrar compositing do browser */}
+      {/* Overlay layers */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <div className="absolute inset-0 bg-[var(--color-brand-charcoal)]/60" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_30%,_rgba(29,27,26,0.9)_100%)]" />

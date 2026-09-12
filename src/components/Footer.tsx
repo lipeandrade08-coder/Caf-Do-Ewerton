@@ -86,9 +86,14 @@ export default function Footer() {
           <div className="flex space-x-6 mt-4 md:mt-0">
             <Link href="/termos-de-uso" className="hover:text-[var(--color-brand-gold)] transition-colors">Termos de Uso</Link>
             <Link href="/politica-de-privacidade" className="hover:text-[var(--color-brand-gold)] transition-colors">Política de Privacidade</Link>
-            <p className="opacity-50 hover:opacity-100 transition-opacity ml-4 border-l border-[var(--color-brand-gold)]/20 pl-4">
+            <Link
+              href="https://www.instagram.com/2typeofc/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="opacity-50 hover:opacity-100 hover:text-[var(--color-brand-gold)] transition-all ml-4 border-l border-[var(--color-brand-gold)]/20 pl-4"
+            >
               Desenvolvido por 2Type
-            </p>
+            </Link>
           </div>
         </div>
         

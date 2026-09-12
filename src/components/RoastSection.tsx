@@ -50,7 +50,7 @@ export default function RoastSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="flex flex-col items-center text-center p-8 bg-[var(--color-brand-charcoal)]/60 backdrop-blur-md rounded-2xl border border-[var(--color-brand-gold)]/10 hover:border-[var(--color-brand-gold)]/30 transition-colors"
+            className="flex flex-col items-center text-center p-8 bg-[#1D1B1A]/90 rounded-2xl border border-[var(--color-brand-gold)]/10 hover:border-[var(--color-brand-gold)]/30 transition-colors"
           >
             {/* CSS float animation – replaces infinite framer-motion y:[0,-10,0] */}
             <div
@@ -70,7 +70,7 @@ export default function RoastSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="flex flex-col items-center text-center p-8 bg-[var(--color-brand-charcoal)]/60 backdrop-blur-md rounded-2xl border border-[var(--color-brand-gold)]/20 shadow-[0_0_20px_rgba(200,169,106,0.1)] hover:border-[var(--color-brand-gold)]/40 transition-colors"
+            className="flex flex-col items-center text-center p-8 bg-[#1D1B1A]/90 rounded-2xl border border-[var(--color-brand-gold)]/20 shadow-[0_0_20px_rgba(200,169,106,0.1)] hover:border-[var(--color-brand-gold)]/40 transition-colors"
           >
             <div
               className="w-16 h-16 rounded-full border border-[var(--color-brand-gold)] flex items-center justify-center mb-6 text-[var(--color-brand-gold)] bg-[var(--color-brand-gold)]/10 animate-float-subtle"
@@ -90,7 +90,7 @@ export default function RoastSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.5 }}
-            className="flex flex-col items-center text-center p-8 bg-[var(--color-brand-charcoal)]/60 backdrop-blur-md rounded-2xl border border-[var(--color-brand-gold)]/10 hover:border-[var(--color-brand-gold)]/30 transition-colors"
+            className="flex flex-col items-center text-center p-8 bg-[#1D1B1A]/90 rounded-2xl border border-[var(--color-brand-gold)]/10 hover:border-[var(--color-brand-gold)]/30 transition-colors"
           >
             <div
               className="w-16 h-16 rounded-full border border-[var(--color-brand-gold)]/30 flex items-center justify-center mb-6 text-[var(--color-brand-gold)] animate-float-subtle"

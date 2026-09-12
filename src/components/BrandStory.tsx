@@ -1,28 +1,101 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 
 export default function BrandStory() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
+  const [isReady, setIsReady] = useState(false);
+  const rafRef = useRef<number | null>(null);
+  const lastScrollY = useRef(-1);
+
+  // Wait for video metadata before enabling scroll scrub
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const onLoaded = () => {
+      video.pause();
+      video.currentTime = 0;
+      setIsReady(true);
+    };
+
+    if (video.readyState >= 1) {
+      onLoaded();
+    } else {
+      video.addEventListener("loadedmetadata", onLoaded);
+      return () => video.removeEventListener("loadedmetadata", onLoaded);
+    }
+  }, []);
+
+  // rAF-throttled scroll scrub — never blocks the main thread at 60fps
+  useEffect(() => {
+    if (!isReady) return;
+
+    const video = videoRef.current;
+    const section = sectionRef.current;
+    if (!video || !section) return;
+
+    const updateFrame = () => {
+      const currentScrollY = window.scrollY;
+      // Skip if scroll hasn't changed (saves GPU decode calls)
+      if (currentScrollY === lastScrollY.current) return;
+      lastScrollY.current = currentScrollY;
+
+      const rect = section.getBoundingClientRect();
+      const windowH = window.innerHeight;
+      const progress = Math.max(
+        0,
+        Math.min(1, (windowH - rect.top) / (section.offsetHeight + windowH))
+      );
+
+      try {
+        video.currentTime = progress * video.duration;
+      } catch {
+        // ignore seek errors during rapid scroll
+      }
+    };
+
+    const onScroll = () => {
+      if (rafRef.current !== null) return; // already scheduled
+      rafRef.current = requestAnimationFrame(() => {
+        updateFrame();
+        rafRef.current = null;
+      });
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    updateFrame(); // set initial frame
+
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      if (rafRef.current !== null) cancelAnimationFrame(rafRef.current);
+    };
+  }, [isReady]);
+
   return (
     <section
+      ref={sectionRef}
       id="historia"
       className="py-24 bg-[var(--color-brand-charcoal)] border-y border-[var(--color-brand-gold)]/5 relative overflow-hidden"
       aria-labelledby="historia-heading"
       itemScope
       itemType="https://schema.org/AboutPage"
     >
-      {/* Background Image with low opacity */}
-      <div 
-        className="absolute inset-0 z-0 pointer-events-none opacity-10 md:opacity-15"
-        style={{
-          backgroundImage: "url('/nossahistoria.png')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundAttachment: "fixed"
-        }}
+      {/* Background Video — scroll-driven via rAF, never autoplays */}
+      <video
+        ref={videoRef}
+        className="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none opacity-15 gpu-layer"
+        src="/Coffee_plantation_at_sunrise_1080p_20260912125658.mp4"
+        muted
+        playsInline
+        preload="auto"
+        disablePictureInPicture
       />
-      {/* Gradient overlay to ensure text readability */}
-      <div className="absolute inset-0 z-0 bg-gradient-to-b from-[var(--color-brand-charcoal)]/80 via-transparent to-[var(--color-brand-charcoal)]/80 pointer-events-none" />
+
+      {/* Dark overlay for text readability */}
+      <div className="absolute inset-0 z-0 bg-gradient-to-b from-[var(--color-brand-charcoal)]/90 via-[var(--color-brand-charcoal)]/60 to-[var(--color-brand-charcoal)]/90 pointer-events-none" />
 
       <div className="container mx-auto px-6 text-center max-w-4xl relative z-10">
         <motion.div
@@ -34,7 +107,7 @@ export default function BrandStory() {
         >
           ♕
         </motion.div>
-        
+
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -44,7 +117,7 @@ export default function BrandStory() {
           id="historia-heading"
           itemProp="name"
         >
-          Café do Ewerton
+          Nossa História
         </motion.h2>
 
         <motion.p
@@ -76,7 +149,6 @@ export default function BrandStory() {
           </p>
         </motion.div>
       </div>
-
     </section>
   );
 }
