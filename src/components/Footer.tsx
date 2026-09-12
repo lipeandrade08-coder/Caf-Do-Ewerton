@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Phone } from "lucide-react";
+import { Phone, MapPin } from "lucide-react";
 
 const InstagramIcon = ({ size = 16 }: { size?: number }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -15,7 +15,7 @@ export default function Footer() {
   return (
     <footer className="bg-[#121110] pt-20 pb-10 border-t border-[var(--color-brand-gold)]/10">
       <div className="container mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
           
           {/* Logo & Brand */}
           <div className="md:col-span-1 flex flex-col items-start">
@@ -41,6 +41,9 @@ export default function Footer() {
               <Link href="#nosso-cafe" className="text-[var(--color-brand-beige)] hover:text-[var(--color-brand-cream)] hover:translate-x-1 text-sm transition-all">
                 Nosso Café
               </Link>
+              <Link href="#historia" className="text-[var(--color-brand-beige)] hover:text-[var(--color-brand-cream)] hover:translate-x-1 text-sm transition-all">
+                Nossa História
+              </Link>
               <Link href="#qualidade" className="text-[var(--color-brand-beige)] hover:text-[var(--color-brand-cream)] hover:translate-x-1 text-sm transition-all">
                 Qualidade & Torra
               </Link>
@@ -63,32 +66,16 @@ export default function Footer() {
                 <span>@cafe_do_ewerton</span>
               </Link>
               <p className="text-[var(--color-brand-beige)]/70 text-sm mt-2">
-                contato@cafedoewerton.com.br
+                carvalhoewerton99@gmail.com
               </p>
+              <div className="text-[var(--color-brand-beige)] hover:text-[var(--color-brand-cream)] text-sm transition-colors flex items-start space-x-2 mt-4">
+                <MapPin size={16} className="text-[var(--color-brand-gold)] shrink-0 mt-0.5" />
+                <span>Av. Gustavo Mollica, Nº 241<br />Portal das Colinas</span>
+              </div>
             </div>
           </div>
 
-          {/* Newsletter */}
-          <div className="md:col-span-1 flex flex-col">
-            <h4 className="text-[var(--color-brand-gold)] text-sm font-bold tracking-widest uppercase mb-6">Newsletter</h4>
-            <p className="text-[var(--color-brand-beige)]/70 text-sm font-light mb-4">
-              Receba novidades, dicas de preparo e ofertas exclusivas do nosso café.
-            </p>
-            <form className="flex flex-col space-y-3" onSubmit={(e) => e.preventDefault()}>
-              <input 
-                type="email" 
-                placeholder="Seu melhor e-mail" 
-                className="bg-[var(--color-brand-charcoal)] border border-[var(--color-brand-gold)]/20 text-[var(--color-brand-cream)] px-4 py-3 rounded-lg text-sm focus:outline-none focus:border-[var(--color-brand-gold)] transition-colors placeholder:text-[var(--color-brand-beige)]/40"
-              />
-              <button 
-                type="submit"
-                className="bg-[var(--color-brand-gold)] text-[var(--color-brand-charcoal)] font-bold text-sm px-4 py-3 rounded-lg hover:bg-[var(--color-brand-beige)] transition-colors"
-              >
-                Assinar
-              </button>
-            </form>
-          </div>
-          
+
         </div>
 
         {/* Copyright */}

@@ -41,7 +41,7 @@ export default function BrandStory() {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="text-[var(--color-brand-gold)] text-xl font-medium tracking-wide mb-10"
         >
-          Uma marca feita para quem valoriza os pequenos momentos.
+          Tradição, altitude e altíssima qualidade em cada grão.
         </motion.p>
 
         <motion.div
@@ -49,14 +49,17 @@ export default function BrandStory() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="text-[var(--color-brand-beige)] font-light leading-relaxed space-y-6 text-lg"
+          className="text-[var(--color-brand-beige)] font-light leading-relaxed space-y-6 text-lg text-justify md:text-center"
           itemProp="description"
         >
           <p>
-            O verdadeiro café especial não é apenas sobre o sabor na xícara, é sobre toda a jornada que os grãos percorrem até chegar a você.
+            O <strong>Café do Ewerton</strong> nasce no coração de <strong>Carmo de Minas</strong>, encravado nas montanhas da lendária Serra da Mantiqueira. Cultivado a uma altitude privilegiada de aproximadamente 1.200 metros do nível do mar, nosso café se beneficia de um <em>terroir</em> mundialmente reconhecido por abrigar os melhores produtores de café do planeta. As condições climáticas perfeitas e o solo rico conferem aos nossos grãos uma identidade única.
           </p>
           <p>
-            Em breve, compartilharemos aqui a história completa de dedicação, tradição e cuidado que deu origem ao Café do Ewerton.
+            Nossa dedicação à excelência é comprovada na xícara: um café de altíssima qualidade que atinge a impressionante <strong>pontuação de 86 pontos</strong>. Trata-se de uma bebida de alto padrão, que se destaca por suas notas adocicadas naturais e marcantes, classificando-o como um autêntico Café Especial de excelência.
+          </p>
+          <p>
+            Esse resultado não é obra do acaso. Ele é fruto do trabalho meticuloso de cafeicultores apaixonados, totalmente focados na monocultura do café. Cada etapa importa: desde a colheita, que seleciona criteriosamente apenas os melhores frutos no cafezal, até o cumprimento irrestrito das mais rigorosas especificações dos órgãos responsáveis pela cafeicultura. É com esse rigor e respeito à terra que o Café do Ewerton sai de nossas montanhas para conquistar exigentes paladares em todos os estados do país.
           </p>
         </motion.div>
       </div>
