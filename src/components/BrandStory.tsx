@@ -6,12 +6,25 @@ export default function BrandStory() {
   return (
     <section
       id="historia"
-      className="py-24 bg-[var(--color-brand-charcoal)] border-y border-[var(--color-brand-gold)]/5 relative"
+      className="py-24 bg-[var(--color-brand-charcoal)] border-y border-[var(--color-brand-gold)]/5 relative overflow-hidden"
       aria-labelledby="historia-heading"
       itemScope
       itemType="https://schema.org/AboutPage"
     >
-      <div className="container mx-auto px-6 text-center max-w-4xl">
+      {/* Background Image with low opacity */}
+      <div 
+        className="absolute inset-0 z-0 pointer-events-none opacity-10 md:opacity-15"
+        style={{
+          backgroundImage: "url('/nossahistoria.png')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundAttachment: "fixed"
+        }}
+      />
+      {/* Gradient overlay to ensure text readability */}
+      <div className="absolute inset-0 z-0 bg-gradient-to-b from-[var(--color-brand-charcoal)]/80 via-transparent to-[var(--color-brand-charcoal)]/80 pointer-events-none" />
+
+      <div className="container mx-auto px-6 text-center max-w-4xl relative z-10">
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           whileInView={{ opacity: 1, scale: 1 }}
@@ -64,11 +77,6 @@ export default function BrandStory() {
         </motion.div>
       </div>
 
-      {/* Botanical Elements */}
-      <div className="absolute top-0 right-0 w-64 h-64 opacity-5 pointer-events-none" 
-           style={{ backgroundImage: "url('/botanical.png')", backgroundSize: "cover" }} />
-      <div className="absolute bottom-0 left-0 w-64 h-64 opacity-5 pointer-events-none rotate-180" 
-           style={{ backgroundImage: "url('/botanical.png')", backgroundSize: "cover" }} />
     </section>
   );
 }
