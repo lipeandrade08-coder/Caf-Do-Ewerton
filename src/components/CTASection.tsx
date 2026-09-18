@@ -86,7 +86,7 @@ export default function CTASection() {
           </Link>
           
           <Link
-            href="https://www.instagram.com/cafe_do_ewerton/"
+            href="https://www.instagram.com/cafedoewerton/"
             className="flex items-center space-x-3 bg-transparent border border-[var(--color-brand-gold)]/50 text-[var(--color-brand-cream)] px-10 py-4 rounded-full font-bold text-sm md:text-base hover:bg-[var(--color-brand-gold)]/10 hover:border-[var(--color-brand-gold)] transition-all duration-300 w-full sm:w-auto justify-center"
           >
             <span>CONHECER NOSSO INSTAGRAM</span>

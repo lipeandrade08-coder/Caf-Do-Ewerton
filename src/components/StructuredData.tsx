@@ -41,7 +41,7 @@ const person = {
   name: "Ewerton",
   jobTitle: "Fundador e Curador de Café",
   worksFor: { "@id": `${BASE_URL}/#organization` },
-  sameAs: ["https://www.instagram.com/cafe_do_ewerton/"],
+  sameAs: ["https://www.instagram.com/cafedoewerton/"],
 };
 
 const localBusiness = {
@@ -67,7 +67,7 @@ const localBusiness = {
     height: 512,
   },
   sameAs: [
-    "https://www.instagram.com/cafe_do_ewerton/",
+    "https://www.instagram.com/cafedoewerton/",
     `https://wa.me/5512997792964`,
   ],
   address: {
@@ -290,7 +290,7 @@ const organization = {
     },
   ],
   sameAs: [
-    "https://www.instagram.com/cafe_do_ewerton/",
+    "https://www.instagram.com/cafedoewerton/",
     `https://wa.me/5512997792964`,
   ],
 };

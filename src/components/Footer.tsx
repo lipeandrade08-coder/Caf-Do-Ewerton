@@ -61,9 +61,9 @@ export default function Footer() {
                 <Phone size={16} className="text-[var(--color-brand-gold)]" />
                 <span>(12) 99779-2964</span>
               </Link>
-              <Link href="https://www.instagram.com/cafe_do_ewerton/" target="_blank" className="text-[var(--color-brand-beige)] hover:text-[var(--color-brand-cream)] text-sm transition-colors flex items-center space-x-2">
+              <Link href="https://www.instagram.com/cafedoewerton/" target="_blank" className="text-[var(--color-brand-beige)] hover:text-[var(--color-brand-cream)] text-sm transition-colors flex items-center space-x-2">
                 <InstagramIcon size={16} />
-                <span>@cafe_do_ewerton</span>
+                <span>@cafedoewerton</span>
               </Link>
               <p className="text-[var(--color-brand-beige)]/70 text-sm mt-2">
                 carvalhoewerton99@gmail.com
